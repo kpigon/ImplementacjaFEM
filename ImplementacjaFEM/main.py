@@ -25,8 +25,10 @@ def generujTabliceGeometrii(x_0, x_p, n):
     return matrix
 
 def rysujGeometrie(wezly,elementy):
-    il_wezlow=wezly.size()
+    il_wezlow=len(wezly)
     y=np.zeros((il_wezlow,1))
     plt.plot(wezly[:,1],y,'r.')
+    plt.show()
 
-print(generujTabliceGeometrii(1,2,5))
+#print(generujTabliceGeometrii(1,2,5))
+rysujGeometrie(wezly,elementy)
