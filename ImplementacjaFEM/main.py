@@ -1,34 +1,29 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import AutomatycznyGeneratorGeometrii as agg
+import RysujGeometrie as rg
+import GeometriaDefinicja as gd
+import Alokacja as al
+import FunkcjeBazowe as fb
+
+### PREPROCESSING
 
 #parametry sterujące
 c=0
-f=0
+f= lambda x: 0
 
 #geometria
-x_a=0
-x_b=1
-wezly = np.array([[1,0], [2,1], [3,0.5], [4,0.75]])
-elementy = np.array([[1, 1, 3], [2, 4, 2], [3, 3, 4]])
 
-twb_L = 'D'
-twb_P = 'D'
-wwb_L = 0
-wwb_P = 1
+WEZLY, ELEMENTY, WB= gd.GeometriaDef()
+n=np.shape(WEZLY)[0]
 
-def generujTabliceGeometrii(x_0, x_p, n):
-    temp = (x_p - x_0) / (n - 1)
-    matrix = np.array([x_0])
+#x_a=0
+#x_b=1
+#n=5
+#WEZLY,ELEMENTY = agg.generujTabliceGeometrii(x_a,b_a,n)
+#WB = [{"ind": 1, "typ":'D',"wartosc":1},{"ind": 2, "typ":'D',"wartosc":2}]
 
-    for i in range(1, n, 1):
-        matrix = np.block([matrix, i * temp + x_0])
-    return matrix
 
-def rysujGeometrie(wezly,elementy):
-    il_wezlow=len(wezly)
-    y=np.zeros((il_wezlow,1))
-    plt.plot(wezly[:,1],y,'r.')
-    plt.show()
+rg.rysujGeometrie(WEZLY,ELEMENTY,WB)
 
-#print(generujTabliceGeometrii(1,2,5))
-rysujGeometrie(wezly,elementy)
+### PROCESSING
